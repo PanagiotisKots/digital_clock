@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.clock-container {
+    text-align: center;
+    padding: 20px;
+    border: 5px solid white; /* Adding a white border */
+    border-radius: 20px; /* Rounded corners */
+    background-color: rgba(0, 0, 0, 0.7); /* Slight transparency */
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
+    animation: fadeIn 2s ease-in-out, pulseBorder 2s infinite alternate; /* Added animation for border */
+}
+
+.day {
+    font-size: 2em;
+    margin-bottom: 10px;
+    opacity: 1; /* Day is always visible */
+    animation: fadeIn 1s ease-in-out, slideUp 1.5s ease-out; /* Slide-up effect for day */
+}
+
+.time {
+    font-size: 5em;
+    letter-spacing: 0.1em;
+    opacity: 1;
+    animation: fadeIn 1s 1s ease-in-out, switchTime 1s infinite alternate; /* Time has alternating animation */
+}
+
+/* Keyframe for fading in */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Animation for sliding up the day */
+@keyframes slideUp {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Animation for alternating time display */
+@keyframes switchTime {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+/* Pulsing effect for border */
+@keyframes pulseBorder {
+    0% {
+        border-color: white;
+        box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.5);
+    }
+    100% {
+        border-color: rgba(255, 255, 255, 0.3);
+        box-shadow: 0px 0px 25px rgba(255, 255, 255, 0.7);
+    }
+}
